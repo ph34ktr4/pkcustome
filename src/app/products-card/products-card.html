@@ -1,0 +1,31 @@
+<div class="card border-0 position-relative text-center p-3 shadow-sm">
+
+    <!-- Discount  -->
+    <p class="position-absolute top-0 start-0 bg-danger text-white px-2 py-1 small rounded">
+    {{product.Discount}}%
+    </p>
+<br>
+<br>
+    <!-- image -->
+  <img [src] = "product.ImageURL" alt="Mobile" class="product-image">
+  
+    <!-- productName -->
+  <h2 class="product-title">{{product.Name}}</h2>
+  
+  <!-- product Description -->
+  <p class="product-description">{{product.Description}}</p>
+  
+  <!-- product Price -->
+  <div class="price">{{product.Price | currency}}</div>
+  
+  <!-- product price in khmer  -->
+  <div class="price">{{product.Price | convertToKhr}}៛</div>
+
+  <!-- rating star -->
+  <div class="stars">★★★★★</div>
+
+  <div class="product-description">See more...</div>
+
+  <!-- button Order -->
+  <button class="buy-button">Order Now</button>
+</div>

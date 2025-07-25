@@ -1,0 +1,17 @@
+<div class="container">
+
+  <app-menu-bar></app-menu-bar>
+   
+  <app-main-slider></app-main-slider>
+
+  <div class="row">
+    @for (product of products; track product.id){
+      <app-products-card [product]="product" class="col-lg-3 col-md-3 col-sm-6 mt-4"></app-products-card>
+    }
+  </div>
+
+  <app-about-us></app-about-us>
+
+</div>
+
+<router-outlet/>
