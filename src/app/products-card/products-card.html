@@ -1,34 +1,46 @@
 <div class="card border-0 position-relative text-center p-3 shadow-sm">
 
-    <!-- Discount  -->
-    <p class="position-absolute top-0 start-0 bg-danger text-white px-2 py-1 small rounded">
-    {{product.Discount}}%
-    </p>
-<br>
-<br>
-    <!-- image -->
-  <img [src] = "product.ImageURL" alt="Mobile" class="product-image">
-  
-    <!-- productName -->
-  <h2 class="product-title">{{product.Name}}</h2>
-  
-  <!-- product Description -->
-  <p class="product-description">{{product.Description}}</p>
-  
-  <!-- product Price -->
-  <div class="price">{{product.Price | currency}}</div>
-  
-  <!-- product price in khmer  -->
-  <div class="price">{{product.Price | convertToKhr}}៛</div>
+  <!-- Stock -->
+  <p class="qtyfield">In stock: {{product.qty}}</p>
 
-  <!-- product category -->
-   <div class="product-description">{{product.Category}}</div>
+  <!-- Image with link to details -->
+  <div 
+    class="product-card mb-3" 
+    style="cursor: pointer;" 
+    [routerLink]="['/product-detail']"
+    [queryParams]="{ product_id: product.id }">
+    
+    <img [src]="product.imageUrl"
+         alt="{{product.name}}"
+         onerror="this.src='/no_image.png';" 
+         class="product-image">
+  </div>
 
-  <!-- rating star -->
+  <!-- Product Name -->
+  <h2 class="product-title">{{product.name}}</h2>
+  
+  <!-- Price (USD) -->
+  <div class="price">{{product.price | currency}}</div>
+  
+  <!-- Price (KHR) -->
+  <div class="price">{{product.price | convertToKhr}}៛</div>
+
+  <!-- Rating -->
   <div class="stars">★★★★★</div>
 
-  <div class="product-description">See more...</div>
+  <!-- See more link to detail -->
+  <div 
+    [routerLink]="['/product-detail']" 
+    [queryParams]="{ product_id: product.id }"
+    class="product-description d-block mt-2"
+    style="cursor: pointer; text-decoration: underline; color: #007bff;">
+    See more...
+</div>
 
-  <!-- button Order -->
-  <button class="buy-button">Order Now</button>
+  <!-- Add To Cart Button -->
+  <input 
+    type="button" 
+    class="buy-button mt-3 btn btn-success" 
+    value="Add To Cart" 
+    (click)="onAddToCart(product)">
 </div>

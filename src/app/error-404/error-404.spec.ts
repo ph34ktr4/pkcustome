@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MenuBar } from './menu-bar';
+import { Error404 } from './error-404';
 
-describe('MenuBar', () => {
-  let component: MenuBar;
-  let fixture: ComponentFixture<MenuBar>;
+describe('Error404', () => {
+  let component: Error404;
+  let fixture: ComponentFixture<Error404>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MenuBar]
+      imports: [Error404]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MenuBar);
+    fixture = TestBed.createComponent(Error404);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
